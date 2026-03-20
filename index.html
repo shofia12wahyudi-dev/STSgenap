@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistem Rekap Tata Tertib</title>
+<link rel="stylesheet" href="css/style.css">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header"> 
+    <h1>Daftar Pelanggaran Siswa</h1>
+    <div class="clock-box">
+      <div class="clock" id="clock"></div>
+      <div class="date-txt" id="date"></div>
+    </div>
+</div>
+
+<div class="cards">
+    <div class="card">
+        <h3>Total</h3>
+        <h2 id="total">0</h2>
+    </div>
+
+    <div class="card">
+        <h3>Terlambat</h3>
+        <h2 id="telat">0</h2>
+    </div>
+
+    <div class="card">
+        <h3>Atribut</h3>
+        <h2 id="atribut">0</h2>
+    </div>
+</div>
+
+<div class="form-box">
+    <input type="text" id="nama" placeholder="Nama">
+    <input type="number" id="nis" placeholder="NIS">
+    <input type="text" id="rayon" placeholder="Rayon">
+
+    <select id="pelanggaran">
+        <option value="">Pilih Pelanggaran</option>
+        <option value="Tidak pakai dasi">Tidak beratribut sesuai</option>
+        <option value="Tidak pakai sabuk">Tidak pakai sabuk</option>
+        <option value="Sepatu tidak hitam">Sepatu tidak sesuai</option>
+    </select>
+
+    <button id="btnTambah">Catat Pelanggaran</button>
+</div>
+
+<table>
+<thead>
+<tr>
+<th>Nama</th>
+<th>NIS</th>
+<th>Rayon</th>
+<th>Waktu</th>
+<th>Pelanggaran</th>
+<th>Aksi</th>
+</tr>
+</thead>
+
+<tbody id="tabel"></tbody>
+</table>
+
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
