@@ -54,6 +54,7 @@ function tambahData(){
   if(editIndex !== -1){
     semua[editIndex] = data;
     editIndex = -1;
+    alert("Data telah diubah");
   } else {
     semua.push(data);
   }
