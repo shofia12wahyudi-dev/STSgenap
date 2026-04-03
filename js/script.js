@@ -21,15 +21,25 @@ Clock();
 let semua =  [];
 let editIndex = -1;
 
+function capitalizeWords(text) {
+  return text.split(" ")
+    .map(kata => kata.charAt(0).toUpperCase() + kata.slice(1).toLowerCase())
+    .join(" ");
+}
+
+// EVENT LISTENER
+document.getElementById("btnTambah")
+  .addEventListener("click", tambahData);
+
 // TAMBAH DATA
 function tambahData(){
 
   let id = Math.floor(Math.random() * 1000);
 
-  let nama = document.getElementById("nama").value.trim();
+  let nama = capitalizeWords(document.getElementById("nama").value.trim());
   let nis = document.getElementById("nis").value.trim();
-  let rayon = document.getElementById("rayon").value.trim();
-  let pelanggaran = document.getElementById("pelanggaran").value.trim();
+  let rayon = capitalizeWords(document.getElementById("rayon").value.trim());
+  let pelanggaran = capitalizeWords(document.getElementById("pelanggaran").value.trim());
     if (!nama || !nis || !rayon) {
       alert("Semua form harus diisi!");
     return;
@@ -78,7 +88,7 @@ function tampilData(){
   let text = "";
 
   if (dt.telat && dt.pelanggaran) {
-    text = "terlambat & ".toUpperCase() + dt.pelanggaran;
+    text = "terlambat & " + dt.pelanggaran;
   } else if (dt.telat) {
     text = "terlambat".toUpperCase();
   } else {
@@ -93,8 +103,8 @@ function tampilData(){
       <td>${dt.waktu}</td>
       <td style="color:${dt.telat ? "red" : "white"}">${text}</td>
       <td class="submit-btn">
-        <button onclick="hapusData(${dt.id})"><i id="i" class='bx bxs-trash-alt' style='color:#ffffff'  ></i></button>
-        <button onclick="editData(${dt.id})"><i id="i" class='bx bxs-edit' style='color:#ffffff'  ></i></button>
+        <button onclick="hapusData(${dt.id})" class="hapus"><i id="i" class='bx bxs-trash-alt' style='color:#ffffff'  ></i></button>
+        <button onclick="editData(${dt.id})" class="hapus"><i id="i" class='bx bxs-edit' style='color:#ffffff'  ></i></button>
       </td>
     </tr>
     `;
@@ -104,6 +114,7 @@ function tampilData(){
   document.getElementById("telat").innerText = semua.filter(dt => dt.telat).length;
   document.getElementById("atribut").innerText = semua.filter(dt => !dt.telat).length;
 }
+
 
 // HAPUS
 function hapusData(id){
@@ -124,10 +135,6 @@ function editData(id){
 
   editIndex = semua.findIndex(dt => dt.id == id);
 }
-
-// EVENT LISTENER
-document.getElementById("btnTambah")
-  .addEventListener("click", tambahData);
 
 // LOAD AWAL
 tampilData();
