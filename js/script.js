@@ -88,7 +88,7 @@ function tampilData(){
   let text = "";
 
   if (dt.telat && dt.pelanggaran) {
-    text = "terlambat & " + dt.pelanggaran;
+    text = "terlambat & ".toLocaleUpperCase + dt.pelanggaran;
   } else if (dt.telat) {
     text = "terlambat".toUpperCase();
   } else {
