@@ -75,12 +75,19 @@ section {
 .hero {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 80px;
+
+    background: linear-gradient(rgba(0, 0, 0, 0.601), rgba(0, 0, 0, 0.64)), url("../img/gedung.png");
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh; 
+
 }
 
 .hero-text {
     max-width: 500px;
+    text-align: center;
 }
 
 .hero-text h1 {
@@ -117,8 +124,13 @@ section {
     color: #38bdf8;
 }
 
+.hero-img {
+    margin-right: 20px;
+}
+
 .hero-img img {
-    width: 400px;
+    width: 50px;
+    
 }
 
 .features {
